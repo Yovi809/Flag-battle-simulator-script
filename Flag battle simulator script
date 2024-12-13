@@ -1,0 +1,34 @@
+local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
+
+local Window = Library:NewWindow("GG Hub | flags battle simulator")
+
+local Tab = Window:NewSection("Main")
+
+Tab:CreateToggle("auto farm", function(value)
+
+_G.auto = true
+    
+    
+    while _G.auto do
+game:GetService("ReplicatedStorage"):WaitForChild("Framework"):WaitForChild("Remotes"):WaitForChild("Click"):FireServer()
+wait(0.1)
+end
+
+end)
+
+Tab:CreateButton("infinite jump", function()
+    
+local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+
+end)
+
+Tab:CreateButton("infinite yield", function()
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+
+end)
